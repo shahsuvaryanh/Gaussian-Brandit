@@ -2,8 +2,8 @@
 
 A Streamlit application comparing the original click-based carousel bandit with a
 three-alternative Gaussian reward simulation. The runnable frontend is at the
-repository root. In the supplied course checkout, `app/`, `docs/`, and `tutorial/`
-retain the starter material; the standalone export excludes those folders.
+repository root. This independent frontend repository contains the application,
+experiments, results, and tests.
 The frontend needs no database, backend, Docker, credentials, or external API.
 
 ## Credit
@@ -130,24 +130,22 @@ assumes the same code and locked dependency environment.
 
 ## Repository and deployment
 
-- Own submission repository URL: **pending publication**.
-- Deployed Streamlit URL: **pending deployment and verification**.
+- GitHub repository: [shahsuvaryanh/Gaussian-Brandit](https://github.com/shahsuvaryanh/Gaussian-Brandit).
+- Live application: [Gaussian Bandit](https://gaussian-brandit-cfka72appkonuurboyai8eg.streamlit.app/Gaussian_Bandit).
 - Local application: `http://localhost:8501` when the server is running.
 - Presentation notes: [PRESENTATION.md](PRESENTATION.md).
 
-The supplied course checkout's origin belongs to the teacher. Publish the frontend to a new
-repository under your own GitHub account. `python tools/export_frontend.py` builds
-an independent frontend directory at `submission/gaussian-bandit/` and a zip file
-next to it. It includes code, pages, setup files, README, tests, experiments, results,
-presentation notes, and CI; it excludes the old backend, ETL, local environments,
-caches, credentials, and the starter's Git history. Initialize a new Git repository
-inside that exported directory on branch `main` and push it to your own repository.
+The frontend is published in this independent repository and deployed on Streamlit
+Community Cloud. The entrypoint is `main.py`; no database or application secrets
+are required.
 
-On [Streamlit Community Cloud](https://share.streamlit.io/), choose that repository,
-branch **main**, entrypoint **main.py**, and Python **3.12** in Advanced settings.
-No secrets are required. Follow the official
-[deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy).
-After deployment, run the default configuration, check the results against the
-longer-run row above, test zero-noise rejection, and navigate through the original
-pages. Add the actual repository and deployed URLs above only after publication
-and verification. The assignment submission consists of those two URLs.
+The deployed Gaussian Bandit page was verified with true means `[1, 2, 3]`,
+σ = 1, 1,000 rounds, and seed 42. It returned total observed reward **2,960.201**,
+selection counts **5, 13, 982**, and a final recommendation of **Alternative 3**,
+matching the longer-run experiment above.
+
+For redeployment, select this repository, branch **main**, entrypoint **main.py**,
+and Python **3.12** in Advanced settings. See the official
+[Streamlit deployment guide](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy).
+
+Submit the GitHub repository and live application URLs listed above.
